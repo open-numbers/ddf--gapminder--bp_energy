@@ -3,6 +3,7 @@ info:
     id: bp-sg-dataset
     base:
         - &d1 open-numbers/ddf--bp--energy
+        - &d2 open-numbers/ddf--gapminder--population_historic
 
 config:
     # the path to search recipe files to include
@@ -25,6 +26,11 @@ ingredients:
           - oil_consumption_tonnes
           - oil_production_tonnes
           - oil_proved_reserves_history
+    - id: pop-datapoints
+      dataset: *d2
+      key: "geo, time"
+      value:
+          - population_total
     - id: bp-countries
       dataset: *d1
       key: geo
@@ -90,8 +96,26 @@ cooking:
                    - oil_consumption_total
                    - oil_production_total
                    - oil_proved_reserves_total
+          result: bp-datapoints-final-0
+        - procedure: merge
+          ingredients:
+              - bp-datapoints-final-0
+              - pop-datapoints
+          result: bp-datapoints-with-pop
+        - procedure: run_op
+          ingredients:
+              - bp-datapoints-with-pop
+          options:
+              op:
+                  # BP
+                  coal_consumption_per_cap: "coal_consumption_total / population_total"
+                  electricity_generation_per_person: "electricity_generation_total / population_total"
+                  natural_gas_production_per_person: "natural_gas_production_total / population_total"
+                  natural_gas_proven_reserves_per_person: "natural_gas_proved_reserves_total / population_total"
+                  oil_production_per_person: "oil_production_total / population_total"
+                  oil_consumption_per_cap: "oil_consumption_total / population_total"
+                  oil_proven_reserves_per_person: "oil_proved_reserves_total / population_total"
           result: bp-datapoints-final
-
     concepts:
         - procedure: extract_concepts
           ingredients:
