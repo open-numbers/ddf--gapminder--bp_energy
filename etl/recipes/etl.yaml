@@ -28,7 +28,7 @@ ingredients:
           - oil_proved_reserves_history
     - id: pop-datapoints
       dataset: *d2
-      key: "geo, time"
+      key: "country, year"
       value:
           - population_total
     - id: bp-countries
@@ -97,10 +97,18 @@ cooking:
                    - oil_production_total
                    - oil_proved_reserves_total
           result: bp-datapoints-final-0
+        - procedure: translate_header
+          ingredients:
+              - pop-datapoints
+          options:
+              dictionary:
+                  country: geo
+                  year: time
+          result: pop-datapoints-translated
         - procedure: merge
           ingredients:
               - bp-datapoints-final-0
-              - pop-datapoints
+              - pop-datapoints-translated
           result: bp-datapoints-with-pop
         - procedure: run_op
           ingredients:

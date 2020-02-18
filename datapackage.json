@@ -1,18 +1,19 @@
 {
-    "name": "ddf--open_numbers--bp_energy",
+    "name": "ddf--gapminder--bp_energy",
     "language": {
         "id": "en"
     },
-    "title": "ddf--open_numbers--bp_energy",
+    "title": "ddf--gapminder--bp_energy",
     "description": "",
     "author": "",
     "license": "",
     "base": [
-        "open-numbers/ddf--bp--energy"
+        "open-numbers/ddf--bp--energy",
+        "open-numbers/ddf--gapminder--population_historic"
     ],
     "id": "bp-sg-dataset",
     "translations": [],
-    "created": "2020-02-11T08:32:09.644243+00:00",
+    "created": "2020-02-18T12:12:04.090908+00:00",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -75,6 +76,27 @@
             }
         },
         {
+            "name": "ddf--datapoints--coal_consumption_per_cap--by--geo--time",
+            "path": "ddf--datapoints--coal_consumption_per_cap--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "coal_consumption_per_cap"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
             "name": "ddf--datapoints--coal_consumption_total--by--geo--time",
             "path": "ddf--datapoints--coal_consumption_total--by--geo--time.csv",
             "schema": {
@@ -96,6 +118,27 @@
             }
         },
         {
+            "name": "ddf--datapoints--electricity_generation_per_person--by--geo--time",
+            "path": "ddf--datapoints--electricity_generation_per_person--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "electricity_generation_per_person"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
             "name": "ddf--datapoints--electricity_generation_total--by--geo--time",
             "path": "ddf--datapoints--electricity_generation_total--by--geo--time.csv",
             "schema": {
@@ -108,6 +151,27 @@
                     },
                     {
                         "name": "electricity_generation_total"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--natural_gas_production_per_person--by--geo--time",
+            "path": "ddf--datapoints--natural_gas_production_per_person--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "natural_gas_production_per_person"
                     }
                 ],
                 "primaryKey": [
@@ -159,6 +223,48 @@
             }
         },
         {
+            "name": "ddf--datapoints--natural_gas_proven_reserves_per_person--by--geo--time",
+            "path": "ddf--datapoints--natural_gas_proven_reserves_per_person--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "natural_gas_proven_reserves_per_person"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--oil_consumption_per_cap--by--geo--time",
+            "path": "ddf--datapoints--oil_consumption_per_cap--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "oil_consumption_per_cap"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
             "name": "ddf--datapoints--oil_consumption_total--by--geo--time",
             "path": "ddf--datapoints--oil_consumption_total--by--geo--time.csv",
             "schema": {
@@ -171,6 +277,27 @@
                     },
                     {
                         "name": "oil_consumption_total"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--oil_production_per_person--by--geo--time",
+            "path": "ddf--datapoints--oil_production_per_person--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "oil_production_per_person"
                     }
                 ],
                 "primaryKey": [
@@ -213,6 +340,48 @@
                     },
                     {
                         "name": "oil_proved_reserves_total"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--oil_proven_reserves_per_person--by--geo--time",
+            "path": "ddf--datapoints--oil_proven_reserves_per_person--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "oil_proven_reserves_per_person"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_total--by--geo--time",
+            "path": "ddf--datapoints--population_total--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_total"
                     }
                 ],
                 "primaryKey": [
@@ -1490,6 +1659,26 @@
                     "country",
                     "time"
                 ],
+                "value": "coal_consumption_per_cap",
+                "resources": [
+                    "ddf--datapoints--coal_consumption_per_cap--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "coal_consumption_per_cap",
+                "resources": [
+                    "ddf--datapoints--coal_consumption_per_cap--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
                 "value": "coal_consumption_total",
                 "resources": [
                     "ddf--datapoints--coal_consumption_total--by--geo--time"
@@ -1510,6 +1699,26 @@
                     "country",
                     "time"
                 ],
+                "value": "electricity_generation_per_person",
+                "resources": [
+                    "ddf--datapoints--electricity_generation_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "electricity_generation_per_person",
+                "resources": [
+                    "ddf--datapoints--electricity_generation_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
                 "value": "electricity_generation_total",
                 "resources": [
                     "ddf--datapoints--electricity_generation_total--by--geo--time"
@@ -1523,6 +1732,26 @@
                 "value": "electricity_generation_total",
                 "resources": [
                     "ddf--datapoints--electricity_generation_total--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "natural_gas_production_per_person",
+                "resources": [
+                    "ddf--datapoints--natural_gas_production_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "natural_gas_production_per_person",
+                "resources": [
+                    "ddf--datapoints--natural_gas_production_per_person--by--geo--time"
                 ]
             },
             {
@@ -1570,6 +1799,46 @@
                     "country",
                     "time"
                 ],
+                "value": "natural_gas_proven_reserves_per_person",
+                "resources": [
+                    "ddf--datapoints--natural_gas_proven_reserves_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "natural_gas_proven_reserves_per_person",
+                "resources": [
+                    "ddf--datapoints--natural_gas_proven_reserves_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "oil_consumption_per_cap",
+                "resources": [
+                    "ddf--datapoints--oil_consumption_per_cap--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "oil_consumption_per_cap",
+                "resources": [
+                    "ddf--datapoints--oil_consumption_per_cap--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
                 "value": "oil_consumption_total",
                 "resources": [
                     "ddf--datapoints--oil_consumption_total--by--geo--time"
@@ -1583,6 +1852,26 @@
                 "value": "oil_consumption_total",
                 "resources": [
                     "ddf--datapoints--oil_consumption_total--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "oil_production_per_person",
+                "resources": [
+                    "ddf--datapoints--oil_production_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "oil_production_per_person",
+                "resources": [
+                    "ddf--datapoints--oil_production_per_person--by--geo--time"
                 ]
             },
             {
@@ -1623,6 +1912,46 @@
                 "value": "oil_proved_reserves_total",
                 "resources": [
                     "ddf--datapoints--oil_proved_reserves_total--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "oil_proven_reserves_per_person",
+                "resources": [
+                    "ddf--datapoints--oil_proven_reserves_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "oil_proven_reserves_per_person",
+                "resources": [
+                    "ddf--datapoints--oil_proven_reserves_per_person--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_total",
+                "resources": [
+                    "ddf--datapoints--population_total--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_total",
+                "resources": [
+                    "ddf--datapoints--population_total--by--geo--time"
                 ]
             }
         ],
