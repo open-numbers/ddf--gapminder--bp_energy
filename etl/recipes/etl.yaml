@@ -6,6 +6,9 @@ info:
         - &d2 open-numbers/ddf--gapminder--population_historic
 
 config:
+    
+    # the path to the dataset
+    ddf_dir: ../../../
     # the path to search recipe files to include
     recipes_dir: ./
     # the path to search dictionary files
