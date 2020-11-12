@@ -24,7 +24,7 @@ ingredients:
       value:
           - coal_consumption_exajoules
           - electricity_generation
-          - gas_consumption_exajoules
+          - gas_production_exajoules
           - gas_proved_reserves
           - oil_consumption_tonne
           - oil_production_tonne
@@ -79,9 +79,9 @@ cooking:
               - bp-datapoints-translated-aligned
           options:
               op:
-                  coal_consumption_total: "coal_consumption_exajoules * 1000000"
+                  coal_consumption_total: "coal_consumption_exajoules"
                   electricity_generation_total: "electricity_generation * 1000000000"
-                  natural_gas_production_total: "gas_consumption_exajoules * 1000000"
+                  natural_gas_production_total: "gas_production_exajoules"
                   gas_proved_reserves: "gas_proved_reserves * 900000000"
                   oil_consumption_total: "oil_consumption_tonne * 1000000"
                   oil_production_total: "oil_production_tonne * 1000000"
