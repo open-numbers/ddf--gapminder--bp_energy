@@ -3,7 +3,7 @@ info:
     id: bp-sg-dataset
     base:
         - &d1 open-numbers/ddf--bp--energy
-        - &d2 open-numbers/ddf--gapminder--population_historic
+        - &d2 open-numbers/ddf--gapminder--population
 
 config:
     
@@ -32,8 +32,9 @@ ingredients:
     - id: pop-datapoints
       dataset: *d2
       key: "country, year"
-      value:
-          - population_total
+      value: 
+          - "population"
+          
     - id: bp-countries
       dataset: *d1
       key: geo
@@ -54,7 +55,7 @@ cooking:
           ingredients:
               - bp-countries
           options:
-              column: geo
+              column: name
               target_column: geo_new
               dictionary:
                   base: gm-country-synonym
@@ -107,6 +108,7 @@ cooking:
               dictionary:
                   country: geo
                   year: time
+                  population: population_total            
           result: pop-datapoints-translated
         - procedure: merge
           ingredients:
