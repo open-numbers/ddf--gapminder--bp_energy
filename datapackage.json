@@ -13,7 +13,7 @@
     ],
     "id": "bp-sg-dataset",
     "translations": [],
-    "created": "2020-11-12T20:50:23.481503+00:00",
+    "created": "2020-11-18T20:07:23.918221+00:00",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -776,6 +776,21 @@
                 ],
                 "primaryKey": "geo"
             }
+        },
+        {
+            "name": "ddf--entities--tag",
+            "path": "ddf--entities--tag.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "tag"
+                    },
+                    {
+                        "name": "name"
+                    }
+                ],
+                "primaryKey": "tag"
+            }
         }
     ],
     "ddfSchema": {
@@ -935,6 +950,15 @@
             }
         ],
         "entities": [
+            {
+                "primaryKey": [
+                    "tag"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--tag"
+                ]
+            },
             {
                 "primaryKey": [
                     "geo"
