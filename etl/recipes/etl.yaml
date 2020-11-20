@@ -3,9 +3,12 @@ info:
     id: bp-sg-dataset
     base:
         - &d1 open-numbers/ddf--bp--energy
-        - &d2 open-numbers/ddf--gapminder--population_historic
+        - &d2 open-numbers/ddf--gapminder--population
 
 config:
+    
+    # the path to the dataset
+    ddf_dir: ../../../
     # the path to search recipe files to include
     recipes_dir: ./
     # the path to search dictionary files
@@ -19,18 +22,19 @@ ingredients:
       dataset: *d1
       key: "geo,year"
       value:
-          - coal_consumption_mtoe
+          - coal_consumption_exajoules
           - electricity_generation
-          - gas_production_mtoe
-          - gas_proved_reserves_history
-          - oil_consumption_tonnes
-          - oil_production_tonnes
-          - oil_proved_reserves_history
+          - gas_production_exajoules
+          - gas_proved_reserves
+          - oil_consumption_tonne
+          - oil_production_tonne
+          - oil_proved_reserves
     - id: pop-datapoints
       dataset: *d2
       key: "country, year"
-      value:
-          - population_total
+      value: 
+          - "population"
+          
     - id: bp-countries
       dataset: *d1
       key: geo
@@ -51,7 +55,7 @@ cooking:
           ingredients:
               - bp-countries
           options:
-              column: geo_name
+              column: name
               target_column: geo_new
               dictionary:
                   base: gm-country-synonym
@@ -75,14 +79,13 @@ cooking:
               - bp-datapoints-translated-aligned
           options:
               op:
-                  coal_consumption_total: "coal_consumption_mtoe * 1000000"
+                  coal_consumption_total: "coal_consumption_exajoules * 1000000000 / 41.868"
                   electricity_generation_total: "electricity_generation * 1000000000"
-                  natural_gas_production_total: "gas_production_mtoe * 1000000"
-                  gas_proved_reserves_history: "gas_proved_reserves_history * 900000000"
-                  oil_consumption_total: "oil_consumption_tonnes * 1000000"
-                  oil_production_total: "oil_production_tonnes * 1000000"
-                  oil_proved_reserves_total: "oil_proved_reserves_history * 136400000"
-                  natural_gas_proved_reserves_total: "gas_proved_reserves_history * 900000000"
+                  natural_gas_production_total: "gas_production_exajoules * 1000000000 / 41.868"
+                  oil_consumption_total: "oil_consumption_tonne * 1000000"
+                  oil_production_total: "oil_production_tonne * 1000000"
+                  oil_proved_reserves_total: "oil_proved_reserves * 136400000"
+                  natural_gas_proved_reserves_total: "gas_proved_reserves * 900000000"
           result: bp-datapoints-op
         - procedure: filter
           ingredients:
@@ -104,6 +107,7 @@ cooking:
               dictionary:
                   country: geo
                   year: time
+                  population: population_total            
           result: pop-datapoints-translated
         - procedure: merge
           ingredients:
